@@ -1,0 +1,156 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>QA Dashboard</title>
+
+<script src="http://cdn.bootcss.com/jquery/3.0.0-rc1/jquery.js"></script>
+<!-- notice: js query must included before highcharts, as highcharts depends on jquery!!!-->
+<script src="./js/lhchart.js" ></script>
+<!-- <script src="http://code.highcharts.com/modules/exporting.js"></script> -->
+<!-- optional -->
+<script src="http://code.highcharts.com/modules/offline-exporting.js"></script>
+<script src="./js/highchartjsLHWrapper.js"></script>
+<script src="./js/jiraconverter.js"></script>
+<script src="./js/demo.js"></script>
+
+<style>
+
+div#content{
+border:none;
+}
+
+.chart{
+border:none;
+}
+
+div.pri {
+  color: white;
+  font-weight: bolder;
+  width:18%;height:80px;float:left;line-height:80px;text-align:center;}
+div#Blocker{background-color:red;}
+div#Critical{background-color:#FF9B00;}
+div#Major{background-color:#FFDF00;}
+div#Minor{background-color:blue;}
+div#Trivial{background-color:green;}
+
+
+div.chart {
+width:95%;
+float:left;
+}
+div.pie{width:44%;}
+div#notice{height:50px;line-height: 50px;}
+div#notice , div#footer{ 
+line-height: 40px;
+height:40px;background-color:rgba(0,0,0,0.65);color:white;font-weight:bold;text-align:center;vertical-align:middle;}
+
+div#content{margin:50px auto 5px auto;width:98%;}
+
+div.clr{clear:both;}
+
+div#priorities{border:none;margin:5px auto;width:95%;}
+
+div#notice{border:1px solid yellow;}
+
+div.clr{border:none;}
+
+div#menubar{
+text-align:center;
+border:none; background-color:rgba(0,0,0,0.65);position:fixed;top:5px;width:98%;z-index:255;
+margin:0 auto;
+}
+
+div.chart{
+padding:25px;
+border:1px solid #cccccc;
+}
+
+div{
+/*border:1px solid #cccccc;*/
+margin:5px;
+}
+
+a, a:link, a:active, a:visited{
+color:white;
+text-decoration:none;
+}
+a:hover{
+color:black;
+}
+li {
+    float: left;
+    padding: 0 30px;
+    line-height: 35px;
+    list-style-type: none;
+    color: white;
+    font-weight: bold;
+}
+
+ul{
+margin:auto;
+padding-top:5px;
+width:90%;
+
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="menubar">
+
+<ul>
+<li><a href="/crm/">CRM&IM测试工具导航</a>
+</li>
+<li><a href="/wiki/">QA WIKI</a>
+</li>
+<li><a href="/jenkins/">JENKINS</a>
+</li>
+<li><a href="/ota/">OTA</a>
+</li>
+<li><a href="/zentaopms/www/">禅道</a>
+</li>
+<li><a href="/debug/">DEBUG平台</a>
+</li>
+</ul>
+
+</div>
+<!-- 
+<div id="notice"><span>距离下次上线还有 x 几天</span></div>
+ -->
+<div id="content">
+
+<div id="priorities"> 
+<div id="Blocker" class="pri">Blocker: 0</div>
+<div id="Critical" class="pri">Critical: 0</div>
+<div id="Major" class="pri">Major: 0</div>
+<div id="Minor" class="pri">Minor: 0</div>
+<div id="Trivial" class="pri">Trivial: 0</div>
+
+<div class="clr"></div>
+
+</div>
+<div id="chartwrap">
+<!-- <div id="container" class="chart" style="width:45%; height:300px;"></div> -->
+<div id="line" class="line chart" ></div>
+<div id="opened" class="pie chart" ></div>
+<div id="tobeclosed" class="pie chart" ></div>
+<div class="clr" ></div>
+</div>
+
+
+</div> <!-- end of content -->
+
+<div id="footer">
+
+2016 © qa.heika.com
+
+</div>
+
+
+</body>
+
+
+</html>
